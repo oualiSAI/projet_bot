@@ -1,20 +1,81 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const axios = require('axios');
+var compris =false;
 
 client.on('ready', () => {
 	console.log('I am ready!');
 });
 client.on('message', message => {
+if(message.mentions.users.has(client.user.id))
+{
+	message.reply("Azul :) je suis la");
+}	
 
+if (message.channel.type=="dm" && message.author.bot==false ) {
+
+	
 if (message.content === 'ping') {
+	
 message.reply('pong');
 }
+
+
+
+else if (message.content.search("!blague") != -1) {
+			
+			axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb=1').then(function(response){
+				message.reply(response.data[0].fact);
+			}).catch(console.log); 
+			
+		}
+		
+else if(message.content.search("!meteo")!=-1)
+{
+	var z=message.content.search("!meteo");
+	var x="!meteo".length;
+
+	var ville=message.content.substring(z+x,message.content.length)
+	
+	axios.get('http://api.openweathermap.org/data/2.5/weather?q='+ville+' &appid=a4b7c2bbdb83d7e413ec09dd4a653791').then(function(response){
+				message.reply(response.data.weather[0].description);
+			}).catch(console.log); 
+			
+}		
+
+else message.reply("Bonjour , désolé j'ai rien compris");
+
+
+}
+ 
 
 console.log(message);
 });
 
 client.on('presenceUpdate', function(oldMember, newMember) {
 console.log(oldMember.presence, '=>', newMember.presence);
+if(newMember.user.username=="kams" && newMember.presence.status=="online")
+{
+newMember.user.sendMessage("Bonjour maitre, je suis le bot de ouali et kamel, que puis-je faire pour vous aujourdhui ?");
+}
+
+}
+
+
+);
+
+compris=false;	
+		
+client.login(process.env.DISCORD_TOKEN);
+
+
+
+
+var express = require('express');
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
 });
 
-client.login(process.env.DISCORD_TOKEN);
+app.listen(process.env.PORT || 3000);
