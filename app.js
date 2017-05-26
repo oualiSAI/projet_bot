@@ -71,7 +71,7 @@ var req = https.request(options, function(res) {
   });
   res.on("end", function () {
     re=JSON.parse(data)
-        console.log(re['data'][0]["link"]);
+        message.reply(re['data'][0]["link"]);
     });
 });
 
@@ -80,7 +80,7 @@ req.on('error', function(e) {
 });
 
 req.end();
-	message.reply(re['data'][0]["link"])
+	
 }	
 else message.reply("Bonjour , désolé j'ai rien compris");
 
