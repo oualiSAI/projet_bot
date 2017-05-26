@@ -49,6 +49,20 @@ var z=message.content.search("!image");
 var x="!image".length;
 
 var titre_image=message.content.substring(z+x,message.content.length)
+var options = {
+  hostname: 'api.imgur.com',
+  path: '/3/gallery/search/time/1/?q='+titre_image,
+  headers: {'Authorization': 'Client-ID 4a23c71db2902ae'},
+  method: 'GET'
+};
+data=""
+
+ 
+
+var req = https.request(options, function(res) {
+    console.log('statusCode:', res.statusCode);
+    console.log('headers:', res.headers);
+    console.log('data:', res.data)
 	
 message.reply(titre_image);	
 }	
