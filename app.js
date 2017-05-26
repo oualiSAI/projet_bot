@@ -51,7 +51,7 @@ var x="!image".length;
 var titre_image=message.content.substring(z+x,message.content.length)
 var options = {
   hostname: 'api.imgur.com',
-  path: '/3/gallery/search/time/1/?q='+titre_image,
+  path: '/3/gallery/search/time/1/?q=zidane',
   headers: {'Authorization': 'Client-ID 4a23c71db2902ae'},
   method: 'GET'
 };
