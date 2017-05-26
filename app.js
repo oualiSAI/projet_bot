@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const https = require('https');
 const client = new Discord.Client();
 const axios = require('axios');
 var compris =false;
@@ -43,7 +44,7 @@ else if(message.content.search("!meteo")!=-1)
 			
 }		
 else if(message.content.search("!image")!=-1)
-{var https = require('https');
+{
 var z=message.content.search("!image");
 var x="!image".length;
 
