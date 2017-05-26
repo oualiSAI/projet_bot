@@ -38,7 +38,7 @@ else if(message.content.search("!meteo")!=-1)
 	var ville=message.content.substring(z+x,message.content.length)
 	
 	axios.get('http://api.openweathermap.org/data/2.5/weather?q='+ville+' &appid=a4b7c2bbdb83d7e413ec09dd4a653791').then(function(response){
-				message.reply(response.data.weather[0].description);
+				message.reply(response.data.weather[0]);
 			}).catch(console.log); 
 			
 }		
