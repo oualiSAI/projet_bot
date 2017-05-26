@@ -43,10 +43,15 @@ else if(message.content.search("!meteo")!=-1)
 			}).catch(console.log); 
 			
 }		
+else if(message.content.search("!image")!=-1)
+{
+var z=message.content.search("!image");
+var x="!image".length;
 
+var titre_image=message.content.substring(z+x,message.content.length)
 	
-	
-	
+message.reply(titre_image);	
+}	
 else message.reply("Bonjour , désolé j'ai rien compris");
 
 
