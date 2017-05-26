@@ -51,35 +51,36 @@ var x="!image".length;
 var titre_image=message.content.substring(z+x,message.content.length)
 var path_p='/3/gallery/search/time/1/?q=';
 var path_o=path_p+titre_image;
+var x='/3/gallery/search/time/1/?q=title:zidane'
 var options = {
   hostname: 'api.imgur.com',
-  path: path_p,
+  path: x,
   headers: {'Authorization': 'Client-ID 4a23c71db2902ae'},
   method: 'GET'
 };
 data=""
 
  
-var req = https.request(options, function(res) {
-    console.log('statusCode:', res.statusCode);
-    console.log('headers:', res.headers);
-    console.log('data:', res.data)
 
+var req = https.request(options, function(res) {
+    
+    
   res.on('data', function(d) {
     data+=d
     
   });
   res.on("end", function () {
     re=JSON.parse(data)
-        message.reply(re);
+        console.log(re['data'][0]["link"]);
     });
 });
-	
+
 req.on('error', function(e) {
   console.error(e);
 });
 
-req.end();	
+req.end();
+	message.reply(titre_image)
 }	
 else message.reply("Bonjour , désolé j'ai rien compris");
 
