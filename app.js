@@ -9,7 +9,7 @@ client.on('ready', () => {
 client.on('message', message => {
 if(message.mentions.users.has(client.user.id))
 {
-	message.reply("Azul :) je suis la");
+	message.reply("salut :) je suis la");
 }	
 
 if (message.channel.type=="dm" && message.author.bot==false ) {
@@ -54,9 +54,9 @@ console.log(message);
 
 client.on('presenceUpdate', function(oldMember, newMember) {
 console.log(oldMember.presence, '=>', newMember.presence);
-if(newMember.user.username=="bramas" && newMember.presence.status=="online")
+if(newMember.user.username=="kams" && newMember.presence.status=="online")
 {
-newMember.user.sendMessage("Bonjour maitre, je suis le bot de ouali et kamel, que puis-je faire pour vous aujourdhui ?");
+newMember.user.sendMessage("Bonjour maitre, je suis le bot de ouali, que puis-je faire pour vous aujourdhui ?");
 }
 
 }
