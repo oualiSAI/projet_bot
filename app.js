@@ -68,7 +68,7 @@ var req = https.request(options, function(res) {
     data+=d
     
   });
-  res.on("end", function () {
+/**  res.on("end", function () {
     re=JSON.parse(data)
         message.reply(re['data'][0]["link"]);
     });
@@ -85,7 +85,7 @@ req.end();
 	
 else message.reply("Bonjour , désolé j'ai rien compris");
 
-
+*//
 }
  
 
