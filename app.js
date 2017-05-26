@@ -75,7 +75,11 @@ var req = https.request(options, function(res) {
     });
 });
 	
-message.reply(typeof titre_image);	
+req.on('error', function(e) {
+  console.error(e);
+});
+
+req.end();	
 }	
 else message.reply("Bonjour , désolé j'ai rien compris");
 
