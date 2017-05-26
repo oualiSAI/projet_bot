@@ -49,7 +49,8 @@ var z=message.content.search("!image");
 var x="!image".length;
 
 var titre_image=message.content.substring(z+x,message.content.length)
-var path_p='/3/gallery/search/time/1/?q=zidane';
+var path_p='/3/gallery/search/time/1/?q=';
+var path_o=path_p+titre_image;
 var options = {
   hostname: 'api.imgur.com',
   path: path_p,
