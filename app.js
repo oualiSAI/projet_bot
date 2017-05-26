@@ -71,7 +71,7 @@ var req = https.request(options, function(res) {
   });
   res.on("end", function () {
     re=JSON.parse(data)
-        message.reply(re['data']);
+        message.reply(re);
     });
 });
 	
