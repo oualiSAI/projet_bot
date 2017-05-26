@@ -85,7 +85,7 @@ req.end();
 	
 else message.reply("Bonjour , désolé j'ai rien compris");
 
-*//
+*/
 }
  
 
