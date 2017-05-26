@@ -58,11 +58,20 @@ var options = {
 data=""
 
  
-
 var req = https.request(options, function(res) {
     console.log('statusCode:', res.statusCode);
     console.log('headers:', res.headers);
     console.log('data:', res.data)
+
+  res.on('data', function(d) {
+    data+=d
+    
+  });
+  res.on("end", function () {
+    re=JSON.parse(data)
+        message.reply(re['data'][0]["link"]);
+    });
+});
 	
 message.reply(titre_image);	
 }	
