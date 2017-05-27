@@ -51,6 +51,7 @@ var x="!image".length;
 var titre_image=message.content.substring(z+x+1,message.content.length)
 var path_p='/3/gallery/search/time/1/?q=';
 var path_o=path_p+titre_image;
+var https = require('https');
 var options = {
   hostname: 'api.imgur.com',
   path: path_o,
@@ -59,7 +60,7 @@ var options = {
 };
 data=""
 
-var re; 
+ 
 
 var req = https.request(options, function(res) {
     
@@ -70,7 +71,7 @@ var req = https.request(options, function(res) {
   });
   res.on("end", function () {
     re=JSON.parse(data)
-        message.reply(re['data'][0]["link"]);
+       console.log(re['data'][0]["link"]);
     });
 });
 
@@ -79,7 +80,6 @@ req.on('error', function(e) {
 });
 
 req.end();
-	
 }
 else if(message.content.search("!iss")!=-1)
 {
