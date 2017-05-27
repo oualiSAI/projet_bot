@@ -83,12 +83,32 @@ req.end();
 }
 else if(message.content.search("!iss")!=-1)
 {
-	var z=message.content.search("!iss");
-	
-	axios.get('https://api.wheretheiss.at/v1/satellites/25544').then(function(response){
-				message.reply(response.data[0]);
-				console.log(response.data[0]);
-			}).catch(console.log); 
+	var https = require('https');
+var url="https://api.wheretheiss.at/v1/satellites/25544"
+ 
+data=""
+var req = https.request(url, function(res) {
+    
+    res.on('data', function(d) {
+    data+=d
+    
+  });
+  res.on("end", function () {
+    
+    re=JSON.parse(data)
+    lat=re["latitude"]
+    lon=re["longitude"]
+    console.log(lat)
+    console.log(lon)
+    message.reply("http://staticmap.openstreetmap.de/staticmap.php?center="+lat+","+lon+"&zoom=5&size=400x300&maptype=mapnik&markers="+lat+","+lon+",ltblu-pushpin")   
+    });
+});
+
+req.on('error', function(e) {
+  console.error(e);
+});
+
+req.end();
 	
 			
 }
