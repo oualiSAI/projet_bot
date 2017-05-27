@@ -72,7 +72,7 @@ var req = https.request(options, function(res) {
   res.on("end", function () {
     re=JSON.parse(data)
 	  if(data=='{"data":[],"success":true,"status":200}')
-       message.reply("Aucun image ne correspond aux termes de recherche spécifiés!");
+       message.reply("Aucune image ne correspond aux termes de recherche spécifiés!");
     	else 
        message.reply(re['data'][0]["link"]);
     });
