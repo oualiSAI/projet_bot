@@ -80,7 +80,16 @@ req.on('error', function(e) {
 
 req.end();
 	
-}	
+}
+else if(message.content.search("!iss")!=-1)
+{
+	var z=message.content.search("!iss");
+	
+	axios.get('https://api.wheretheiss.at/v1/satellites/25544').then(function(response){
+				message.reply(response.data);
+			}).catch(console.log); 
+			
+}
 else message.reply("Bonjour , désolé j'ai rien compris");
 
 
