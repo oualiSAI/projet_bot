@@ -86,8 +86,8 @@ else if(message.content.search("!iss")!=-1)
 	var z=message.content.search("!iss");
 	
 	axios.get('https://api.wheretheiss.at/v1/satellites/25544').then(function(response){
-				message.reply(response.data);
-				console.log(response.data);
+				message.reply(response.data[0]);
+				console.log(response.data[0]);
 			}).catch(console.log); 
 	
 			
