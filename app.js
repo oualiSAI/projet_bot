@@ -9,7 +9,7 @@ client.on('ready', () => {
 });
 client.on('message', message => {
 if(message.mentions.users.has(client.user.id))
-{
+{	console.log(message.mentions.users);
 	message.reply("salut :) je suis la");
 }	
 
