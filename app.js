@@ -31,9 +31,9 @@ else if (message.content.search("!blague") != -1) {
 			
 		}
 		
-else if(message.content.search("!meteo")!=-1)
+else if(message.content.search("!météo")!=-1)
 {
-	var z=message.content.search("!meteo");
+	var z=message.content.search("!météo");
 	var x="!meteo".length;
 
 	var ville=message.content.substring(z+x,message.content.length)
