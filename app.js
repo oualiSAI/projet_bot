@@ -128,7 +128,7 @@ client.on('presenceUpdate', function(oldMember, newMember) {
 console.log(oldMember.presence, '=>', newMember.presence);
 if(newMember.user.username=="bramas" && newMember.presence.status=="online")
 {
-newMember.user.sendMessage("Bonjour maitre, je suis le bot de ouali, que puis-je faire pour vous aujourdhui ?");
+newMember.user.sendMessage("Bonjour maitre, je suis le bot de ouali et lyasmine, que puis-je faire pour vous aujourdhui ?");
 }
 
 }
